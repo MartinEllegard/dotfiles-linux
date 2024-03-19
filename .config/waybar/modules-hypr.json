@@ -1,0 +1,144 @@
+{
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "I",
+            "2": "II",
+            "3": "III",
+            "4": "IV",
+            "5": "V",
+            "6": "VI",
+            "7": "VII",
+            "8": "VIII",
+            "9": "IX",
+            "10": "X"
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        },
+        "on-click": "activate",
+        "sort-by-number": true,
+        //"active-only": true
+    },
+    "hyprland/window": {
+        "format": "<span>󰅬 </span> {}",
+        "max-length": 100
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a, %d. %b %Y - %H:%M}"
+    },
+    "network": {
+        "format": "  Disabled",
+        "format-wifi": "   {signalStrength}%",
+        "tooltip-format-wifi": "{essid}",
+        "format-ethernet": "  {ipaddr}",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "   Disconnected",
+        "on-click": "footclient -T waybar_nmtui -e nmtui",
+        "interval": 2,
+    },
+    "custom/updates": {
+        "format": "{} {icon}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": "",
+            "updated": ""
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates",
+    },
+    "hyprland/language": {
+        "format": "  {short}",
+        "on-click": "~/.config/waybar/scripts/keyhint.sh",
+    },
+    "cpu": {
+        "format": " {usage: >3}%",
+        "on-click": "footclient -T waybar_btop -e btop"
+    },
+    "memory": {
+        "format": " {: >3}%",
+        "on-click": "footclient -T waybar_btop -e btop"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°",
+        "format": " {temperatureC}°",
+        "tooltip-format": "{temperatureC}° Celsius\n{temperatureF}° Fahrenheit\n{temperatureK}° Kelvin",
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
+        "on-click": "footclient -T waybar_btop -e btop"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip-format-activated": "Idle Inhibitor Activated",
+        "tooltip-format-deactivated": "Idle Inhibitor Deactivated"
+    },
+    "backlight": {
+        "format": "{icon}{percent: >3}%",
+        "format-icons": [
+            "",
+            ""
+        ],
+        "tooltip-format": "Backlight (Scroll): {percent: >3}%",
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon}{volume: >3}%",
+        "format-bluetooth": "{icon} {volume: >3}%",
+        "format-muted": "  muted",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "on-click": "footclient -T waybar_alsamixer -e alsamixer -M"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity: >3}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "clock": {
+        "format": "<span>  </span>{:%a %d %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small> {calendar}</small></tt>"
+    },
+    "tray": {
+        "icon-size": 22
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "nwgbar",
+        "tooltip": false,
+    },
+}

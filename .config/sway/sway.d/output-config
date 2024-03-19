@@ -1,0 +1,38 @@
+
+### Output configuration
+# Monitor setup:
+# list monitors with: swaymsg -t get_outputs
+# all monitors: output *
+
+set $laptop eDP-1
+set $laptop_external HDMI-1
+
+set $desktop-1 DP-1
+set $desktop-2 DP-2
+
+set $primary $desktop-1
+set $secondary $desktop-2
+
+# Laptop
+# output $laptop_external pos 0,0 res 3440x1440@99.982hz bg ~/.config/wallpapers/ultrawide/flowers.jpg fill
+# output $laptop pos 0,0 res 1920x1080 bg ~/.config/wallpapers/ultrawide/flowers.png fill
+output $desktop-1 pos 1080,0 res 3440x1440@99.982hz bg ~/.config/wallpapers/Street.jpg fill
+output $desktop-2 pos 0,0 res 1920x1080 transform 270 bg ~/.config/wallpapers/Street.jpg fill
+
+workspace 1 output $primary
+workspace 2 output $secondary
+workspace 3 output $primary
+workspace 4 output $primary
+workspace 5 output $primary
+
+### Idle configuration
+exec_always swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         before-sleep 'swaylock -f -c 000000'
+#         timeout 350 'swaymsg "output * dpms off"' \
+#              resume 'swaymsg "output * dpms on"' \
+
+### Handle Clamshell mode (lid open/close)
+# bindswitch --reload --locked lid:on output eDP-1 disable
+# bindswitch --reload --locked lid:off output eDP-1 enable
+# exec_always ~/.config/sway/scripts/clamshell.sh

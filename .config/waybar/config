@@ -1,0 +1,24 @@
+{
+
+    "position": "top",
+    "margin-top": 8,
+
+    "include": ["$HOME/.config/waybar/modules-sway.json"],
+
+    "modules-left": [
+        "sway/workspaces" 
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "network",
+        "custom/updates",
+        "cpu",
+        "temperature",
+        "memory",
+        "pulseaudio",
+        "clock",
+        "tray",
+    ],
+}
