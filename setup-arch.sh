@@ -28,5 +28,8 @@ cd paru
 makepkg -si
 
 # Install pacman packages
+# pacman -Qqe | grep -v "$(pacman -Qqm)" > ~/dotfiles-linux/pacman.pgklist
+# pacman -Qqm > ~/dotfiles-linux/aur.pgklist
+
 cd $dotlinux_dir
 cat pacman.pkglist | xargs pacman-S --needed --noconfirm
