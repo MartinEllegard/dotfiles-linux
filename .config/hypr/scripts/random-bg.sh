@@ -2,6 +2,7 @@
 
 directory=~/wallpapers
 monitors=$(hyprctl monitors | grep Monitor | awk '{print $2}')
+sleep 60
 
 # Check if the directory exists
 if [ -d "$directory" ]; then
