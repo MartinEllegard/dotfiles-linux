@@ -64,4 +64,4 @@ exec foot --server
 ###
 
 ### Import Color scheme
-include colors/catppuccin_mocha
+include "colors/$THEME"
