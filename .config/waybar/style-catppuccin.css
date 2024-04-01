@@ -1,19 +1,5 @@
-/* Gruvbox Dark */
-@define-color bg #282828;
-
-@define-color fg #ebdbb2;
-@define-color fg_dim #a89985;
-@define-color fg_active #fe8019;
-@define-color fg_warning #fabd2f;
-@define-color fg_critical #fb4934;
-@define-color fg_green #b8bb26;
-@define-color fg_blue #83a598;
-@define-color fg_purple #d3869b;
-@define-color fg_aqua #8ec07c;
-
-
 * {
-    font-family: 'JetBrainsMono Nerd Font', sans-serif;
+    font-family: 'RobotoMono Nerd Font', sans-serif;
     min-height: 0;
     border-radius: 0;
     font-size:1.05em;
@@ -21,10 +7,7 @@
 
 window#waybar {
     background: rgba(0, 0, 0, 0);
-    /* background: @bg; */
-    margin:0;
-    padding:0;
-    color: @fg;
+    color: #cdd6f4;
 }
 
 
@@ -54,13 +37,13 @@ window#waybar {
 #workspaces,
 #mpd {
     padding: 2px 10px;
-    background: @bg;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    background: rgba(51, 46, 65, 0.5);
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #window{
-    /* border-radius: 15px; */
+    border-radius: 15px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -68,71 +51,70 @@ window#waybar {
 #network {
   padding-left: 15px;
   padding-right: 2px;
-  /* border-radius: 15px 0px 0px 15px; */
+  border-radius: 15px 0px 0px 15px;
 }
 
 #network{
-    color: @fg_purple;
+    color:#f5e0dc;
 }
 
 #custom-updates{
-	color: @fg_active;
+	color: #a6e3a1;
 }
 
 #custom-keyboard-layout{
-   color: @fg_active;
+   color:#f9e2af;
 }
 
 #cpu{
-    color: @fg_aqua;
+    color:#f5e0dc;
 }
 
 #temperature{
-    color: @fg_green;
+    color: #a6e3a1;
 }
 
 #temperature.critical{
-    color: @fg_critical;
+    color: #f38ba8;
 }
 
 #memory{
-    color: @fg_active;
+    color: #b4befe;
 }
 
 #pulseaudio{
-    color: @fg_active;
+    color: #f9e2af;
 }
 
 #pulseaudio.muted{
-    color: @fg_warning;
+    color: #f9e2af;
 }
 
 #battery{
-    color: @fg_green;
+    color: #a6e3a1;
 }
 
 #battery.critical {
-    color: @fg_critical;
+    color: #f38ba8;
 }
 
 #clock{
- color: @fg;
+ color: #b4befe;
 }
 
 #tray {
   padding-right: 15px;
-  /* border-radius: 0px 15px 15px 0px; */
+  border-radius: 0px 15px 15px 0px;
   margin-right: 10px
 }
 
 #workspaces {
-    background: @bg;
+    background: rgba(51, 46, 65, 0.5);
     margin-left: 10px;
-    /* border-radius: 15px; */
+    border-radius: 15px;
 }
 
 #workspaces button {
-    color: @fg_dim;
     margin-left: 10px;
     margin-right: 10px;
     padding: 0 0 0 0;
@@ -153,19 +135,15 @@ window#waybar {
 
 #workspaces button.focused,
 #workspaces button.active {
-  color: @fg_active;
+  color: #89b4fa;
 }
 
 #workspaces button.urgent {
-  color: @fg_critical;
-}
-
-#workspaces button.visible:not(.focused)  {
-    color: @fg
+  color: #f38ba8;
 }
 
 #workspaces button:hover {
     border: 0px;
     background: rgba(0, 0, 0, 0);
-  color: @fg;
+  color: #74c7ec;
 }
