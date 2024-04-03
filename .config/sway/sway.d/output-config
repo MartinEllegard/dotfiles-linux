@@ -16,8 +16,8 @@ set $secondary $desktop-2
 # Laptop
 # output $laptop_external pos 0,0 res 3440x1440@99.982hz bg ~/.config/wallpapers/ultrawide/flowers.jpg fill
 # output $laptop pos 0,0 res 1920x1080 bg ~/.config/wallpapers/ultrawide/flowers.png fill
-output $desktop-1 pos 1080,0 res 3440x1440@99.982hz bg ~/.config/wallpapers/Street.jpg fill
-output $desktop-2 pos 0,0 res 1920x1080 transform 270 bg ~/.config/wallpapers/Street.jpg fill
+output $desktop-1 pos 1080,0 res 3440x1440@99.982hz bg ~/wallpapers/flowers.png fill
+output $desktop-2 pos 0,0 res 1920x1080 transform 270 bg ~/wallpapers/flowers.png fill
 
 workspace 1 output $primary
 workspace 2 output $secondary

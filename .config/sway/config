@@ -1,3 +1,5 @@
+# include default config 
+include /etc/sway/config.d/*
 ### Variables
 # Super key. Use Mod1 for Alt.
 set $mod Mod4
@@ -7,8 +9,8 @@ set $down j
 set $up k
 set $right l
 # Terminal
-#set $term footclient
-set $term kitty
+set $term footclient
+# set $term kitty
 # App launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -17,7 +19,6 @@ set $menu wofi | xargs swaymsg exec --
 set $explorer nautilus
 
 ### Floating window configuration
-
 # Gnome application
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [app_id="org.gnome.Calculator"] floating enable
@@ -37,10 +38,6 @@ for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disa
 ###
 exec xrander --output DP-1 --primary
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
 ### Include sub configs from sway.d directory
 include sway.d/*
 ###
@@ -48,10 +45,17 @@ include sway.d/*
 
 ### Autostart applications
 # Master stack layout autotiling
-#exec_always autotiling-rs
+exec_always autotiling
 
 # Start notification daemon
 exec mako
+
+# Screen sharing daemon
+# https://wiki.archlinux.org/title/XDG_Desktop_Portal
+exec_always --no-startup-id "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+exec_always --no-startup-id "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway"
+
+
 
 # Network manager tray icon
 exec nm-applet --indicator
