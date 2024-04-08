@@ -1,0 +1,71 @@
+general {
+		colors = true
+		interval = 5
+}
+
+order += "cpu_usage"
+order += "load"
+order += "memory"
+#order += "disk /"
+#order += "wireless _first_"
+#order += "ethernet _first_"
+#order += "battery all"
+order += "tztime local"
+
+cpu_usage {
+		# f799, nf-mdi-gauge
+		format = " %usage"
+}
+
+load {
+		# f627, nf-mdi-chart_bar
+		format = " %1min"
+}
+
+memory {
+		# f85a, nf-mdi-memory
+		format = " %used %available"
+		threshold_degraded = "1G"
+		threshold_critical = "256M"
+}
+
+disk "/" {
+		# faed, nf-mdi-disk
+		format = "﫭 %used / %avail"
+		threshold_type = "percentage"
+		low_threshold = "5"
+}
+
+wireless _first_ {
+		# faa8, nf-mdi-wifi
+		format_up = "直 %quality %essid %ip"
+		# faa9, nf-mdi-wifi_off
+		format_down = "睊 down"
+		color_good = '#d8dee8'
+		color_bad = '#d8dee8'
+
+}
+
+ethernet _first_ {
+		# f817, nf-mdi-lan_connect
+		format_up = " %ip (%speed)"
+		# f818, nf-mdi-lan_disconnect
+		format_down = " down"
+		color_good = '#d8dee8'
+		color_bad = '#d8dee8'
+}
+
+battery all {
+		format = "%status %percentage %remaining"
+		integer_battery_capacity = true
+		threshold_type = "percentage"
+		low_threshold = "15"
+		# f58e nf-mdi-battery_plus; f58b nf-mdi-battery_minus; f578 nf-mdi-battery
+		status_chr = " CHR"
+		status_bat = " BAT"
+		status_full = " FULL"
+}
+
+tztime local {
+		format = "%d.%m.%Y %H:%M"
+}
