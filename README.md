@@ -32,6 +32,7 @@ stow .
 ```
 ## Sway
 
+TODO: fix nvidia vars
 ![sway picture](sway.png)
 ## I3
 
