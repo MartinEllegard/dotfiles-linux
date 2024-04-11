@@ -46,7 +46,7 @@ floating_modifier $mod
 bindsym $mod+t exec wezterm-gui
 
 # start firefox
-bindsym $mod+w exec firefox
+bindsym $mod+b exec firefox
 
 # kill focused window
 bindsym $mod+q kill
@@ -55,7 +55,7 @@ bindsym $mod+q kill
 #bindsym $mod+d exec --no-startup-id dmenu_run
 
 # start rofi
-bindsym $mod+space exec --no-startup-id rofi -show-icons -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+bindsym $mod+space exec --no-startup-id rofi -show-icons -show drun -run-shell-command '{terminal} -e fish -ic "{cmd} && read"'
 
 # change focus
 bindsym $mod+h focus left
@@ -218,6 +218,9 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip
 
 # Exec polybar at startup and after refreshing i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Set gtk4 settings
+exec_always --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark 
 
 # Start Redshift to adjust display temperature
 # exec --no-startup-id redshift -l 47.5:9.4 -t 5700:3600 -g 0.9 -m randr -v
