@@ -1,0 +1,50 @@
+#!/usr/bin/fish
+
+export TERM=xterm-256color
+
+# Ensure we can find objects we've built by hand and not into debs
+#export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu/
+
+# Nvidia Setting??
+export WLR_NO_HARDWARE_CURSORS=1
+export VDPAU_DRIVER=nvidia
+export LIBVA_DRIVER_NAME=nvidia
+export DESKTOP_SESSION=sway-nvidia
+export __GL_VRR_ALLOWED=1
+export WAYLAND_DISPLAY=wayland-1
+export WLR_RENDERER=vulkan
+export __GL_GSYNC_ALLOWED=1
+export MOZ_ENABLE_WAYLAND=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export GBM_BACKEND=nvidia-drm
+export XWAYLAND_NO_GLAMOR=1
+#export WLR_DRM_NO_MODIFIERS=1
+
+# Fixes issues on jetbrains ides
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# More functional tray on waybar
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=sway
+
+# Force firefox into wayland and enable hw video decoding (ff 75+)
+export MOZ_ENABLE_WAYLAND=1
+#export MOZ_WAYLAND_USE_VAAPI=1
+#export MOZ_DISABLE_RDD_SANDBOX=1
+
+# Clutter backend for gtk
+export CLUTTER_BACKEND=wayland
+
+export SDL_VIDEODRIVER="wayland,x11"
+
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+# QT apps theme
+export QT_QPA_PLATFORM=wayland #for nvidia
+#export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+exec sway
